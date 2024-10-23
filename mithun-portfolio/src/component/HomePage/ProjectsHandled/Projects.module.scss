@@ -1,0 +1,34 @@
+.section {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .hero,
+  .final {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .section,
+  .final,
+  .hero {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .bg-section {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(#1f3d7a, #1f3d7a);
+  }
+  
+  .flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

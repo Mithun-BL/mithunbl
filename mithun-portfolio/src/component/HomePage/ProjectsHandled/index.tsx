@@ -1,8 +1,16 @@
-import React from 'react'
+import React from 'react';
+import {Container} from 'react-bootstrap';
 
 const ProjectsHandled = () => {
   return (
-    <div>index</div>
+    <div>
+       <section className='mb-5'>
+        <Container>
+            <h2 className='fw-bold'>Projects</h2>
+
+        </Container>
+        </section> 
+    </div>
   )
 }
 

@@ -18,7 +18,6 @@ const BannerData =
 const HomeBanner = () => {
 
   return (
-    <div>
       <section className={classNames(styles.banner, 'my-5')}>
         <Container>
           <div className={styles.bannerContent}>
@@ -35,7 +34,6 @@ const HomeBanner = () => {
           </div>    
         </Container>
       </section>
-    </div>
   )
 }
 

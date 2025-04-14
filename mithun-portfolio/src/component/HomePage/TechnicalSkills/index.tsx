@@ -47,6 +47,9 @@ const Skills = () => {
                       </div>
                     </Col>
                 </Row>
+                <div className='text-center mt-4'>
+                  <a href={'...'} className='btn_bdr text-decoration-none'>View More</a>               
+                 </div>
             </Container>
         </section>
     </div>

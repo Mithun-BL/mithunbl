@@ -7,13 +7,18 @@
         background-color: #fff;
         box-shadow: 0 5px 5px 0 rgba(233, 240, 243, 0.5), 0 0 0 1px #d8dce4;
         margin-bottom: 24px;
-        transition: 0.5s all ease;
+        transition: 0.6s ease;
 
-        // &:hover{background-color: #f5f5f5;}
+        &:hover{
+            background-color: rgb(11, 11, 56);
+            color: #fff; 
+            transition: 0.6s ease ;
+        }
 
         p{
             text-overflow: ellipsis;
             overflow: hidden;
+            line-clamp: 2;
             -webkit-line-clamp: 2;
             display: -webkit-box;
             -webkit-box-orient: vertical;

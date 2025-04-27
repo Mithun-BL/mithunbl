@@ -6,7 +6,7 @@ import styles from '../Banner/HomeBanner.module.scss';
 
 const BannerData = 
   {
-    Greetings:"Hi I'm Mithun 👋",
+    Greetings:"Hi I'm MithunBL 👋",
     Title:'A passionate web developer who loves to build Creative as well as Interactive websites',  
     Links : [
       {Text:'My Work', TextUrl:'https://paicon.com/'},

@@ -46,7 +46,8 @@ function Header() {
               <Nav.Link href="#home">Skills</Nav.Link>
               <Nav.Link href="#link">Experience</Nav.Link>
               <Nav.Link href="#linkOne">Projects</Nav.Link>
-              <Nav.Link href="#linkOne">Contact</Nav.Link>
+              <Nav.Link href="#linkOne">Contact Us</Nav.Link>
+              <Nav.Link href="#linkOne">Get in Touch</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

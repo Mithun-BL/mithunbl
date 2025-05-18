@@ -4,10 +4,9 @@ import {Container} from 'react-bootstrap';
 const ProjectsHandled = () => {
   return (
     <div>
-       <section className='mb-5'>
+       <section className='secPad'>
         <Container>
-            <h2 className='fw-bold'>Projects</h2>
-
+            <h2 className='fw-bold text-md-center'>Projects</h2>
         </Container>
         </section> 
     </div>

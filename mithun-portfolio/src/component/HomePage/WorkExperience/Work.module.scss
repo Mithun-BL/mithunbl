@@ -1,0 +1,32 @@
+.experienceCards{
+    border-radius: 20px;
+    border: 1.259px solid #DEE5F6;
+    background-color: #fff;
+    padding: 32px;
+    transition: 0.5s all ease;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    // box-shadow: 0px 0px 60px 0px rgba(0, 41, 166, 0.15);
+    &:hover{
+        box-shadow: 0 19px 25px 0 rgba(0, 0, 0, .19);
+
+        &::after{
+            width: 100%;
+        }
+    }  
+
+    &::after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #f5f5f5;
+        transition: 0.8s;
+        z-index: -1;
+    }
+    
+}

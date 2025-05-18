@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -43,13 +44,17 @@ function Header() {
               <input onChange={getDdValue} type="checkbox" aria-label="Theme toggle" />
               <span className="slider"></span>
             </label>
-              <Nav.Link href="#home">Skills</Nav.Link>
-              <Nav.Link href="#link">Experience</Nav.Link>
-              <Nav.Link href="#linkOne">Projects</Nav.Link>
-              <Nav.Link href="#linkOne">Contact Us</Nav.Link>
-              <Nav.Link href="#linkOne">Get in Touch</Nav.Link>
+              <Nav.Link href="#Skills">About</Nav.Link>
+              <Nav.Link href="#Skills">Skills</Nav.Link>
+              <Nav.Link href="#Experience">Experience</Nav.Link>
+              <Nav.Link href="#Projects">Projects</Nav.Link>
+              {/* <Nav.Link href="#Contact Us">Contact Us</Nav.Link> */}
+              {/* <Nav.Link href="#Get in Touch">Get in Touch</Nav.Link> */}
             </Nav>
           </Navbar.Collapse>
+          <div>
+             <Link className='btn_black' href={'..'}>Get in Touch</Link>
+          </div>
         </Container>
       </Navbar>
     </header>

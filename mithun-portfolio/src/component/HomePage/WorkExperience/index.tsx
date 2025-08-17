@@ -6,7 +6,7 @@ const Work = () => {
   return (
     <section className={`${styles.portfolioExperience} secPad`}>
       <Container>
-        <h2 className='fw-bold text-center mb-5 pb-md-4'>Education and Hands-On Experience in IT Industry</h2>
+        <h2 className='fw-bold text-center mb-5 pb-md-4'>Education & Hands-On Experience in IT Industry</h2>
         <Row>
           {/* Education Column */}
           <Col xs={12} md={6} className="pe-md-3">
@@ -33,15 +33,15 @@ const Work = () => {
           {/* Experience Column */}
           <Col xs={12} md={6} className="ps-md-3">
               <div className={styles.experienceCards}>
-                <label>June 2021 - May 2022</label>
-                <h5>Software Engineer</h5>
-                <h4>Codehive IT Solutions Pvt Ltd, <span>Ballari, Karnataka</span></h4>
+                <label>June 2022 - Present</label>
+                <h5>Software Engineer - III</h5>
+                <h4>Terralogic Software Solutions Pvt Ltd, <span>Bangalore, Karnataka</span></h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
               <div className={styles.experienceCards}>
-                <label>June 2022 - Present</label>
-                <h5>Software Engineer</h5>
-                <h4>Terralogic Software Solutions Pvt Ltd, <span>Bangalore, Karnataka</span></h4>
+                <label>June 2021 - May 2022</label>
+                <h5>Junior Software Engineer</h5>
+                <h4>Codehive IT Solutions Pvt Ltd, <span>Ballari, Karnataka</span></h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               </div>
           </Col>

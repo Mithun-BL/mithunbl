@@ -44,7 +44,7 @@ function Header() {
               <input onChange={getDdValue} type="checkbox" aria-label="Theme toggle" />
               <span className="slider"></span>
             </label>
-              <Nav.Link href="#Skills">About</Nav.Link>
+              <Nav.Link href="#Skills">Impact</Nav.Link>
               <Nav.Link href="#Skills">Skills</Nav.Link>
               <Nav.Link href="#Experience">Experience</Nav.Link>
               <Nav.Link href="#Projects">Projects</Nav.Link>

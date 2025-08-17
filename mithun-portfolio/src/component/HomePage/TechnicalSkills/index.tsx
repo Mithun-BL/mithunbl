@@ -8,17 +8,16 @@ const Skills = () => {
   const skills = [
     { title: 'HTML', description: 'Building the structure of websites' },
     { title: 'CSS', description: 'Creating responsive, visually appealing layouts' },
+    { title: 'SCSS', description: 'Writing cleaner and more maintainable CSS' },
     { title: 'Bootstrap', description: 'Building mobile-first, responsive designs' },
+    { title: 'Tailwind', description: 'Utility-first CSS framework' },
     { title: 'JavaScript', description: 'Making websites interactive and dynamic' },
     { title: 'ReactJS', description: 'Building fast, reusable UI components' },
     { title: 'NextJS', description: 'Framework for building full-stack web applications' },
-    // extra tech stacks
     { title: 'TypeScript', description: 'Adding type safety to JavaScript' },
-    { title: 'Redux', description: 'Managing complex state efficiently' },
-    { title: 'SCSS', description: 'Writing cleaner and more maintainable CSS' },
-    { title: 'TailwindCSS', description: 'Utility-first CSS framework' },
-    { title: 'Node.js', description: 'Server-side JavaScript environment' },
-    { title: 'MongoDB', description: 'NoSQL database for modern applications' },
+    // { title: 'Redux', description: 'Managing complex state efficiently' },
+    // { title: 'Node.js', description: 'Server-side JavaScript environment' },
+    // { title: 'MongoDB', description: 'NoSQL database for modern applications' },
   ];
 
   const visibleSkills = showMore ? skills : skills.slice(0, 6);
@@ -27,7 +26,7 @@ const Skills = () => {
     <section className={styles.TechSkills}>
       <Container>
         <h2 className='fw-bold text-center mb-5 pb-3'>
-          Tech Stacks, I use to create websites
+          Tech Stacks & Skills Behind My Web Creations
         </h2>
         <Row>
           {visibleSkills.map((skill, index) => (

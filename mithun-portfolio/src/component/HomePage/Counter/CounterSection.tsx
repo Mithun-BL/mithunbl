@@ -36,9 +36,9 @@ const CountersSection: React.FC = () => {
       <section ref={sectionRef} className={`${styles.counterSection}`}>
         <Container>
           <Row>
-            <Col xs={4}>
+            <Col md={4}>
               <div className={`${styles.counterContent}`}>
-                {startCounting && <Counter endValue={3} suffix=" + " />}
+                {startCounting && <Counter endValue={4}  />}
                 <p>Years of Experience</p>
               </div>
             </Col>
@@ -48,13 +48,13 @@ const CountersSection: React.FC = () => {
                 <p>Technologies</p>
               </div>
             </Col> */}
-            <Col xs={4}>
+            <Col md={4}>
               <div className={`${styles.counterContent}`}>
                 {startCounting && <Counter endValue={15} suffix=" + " />}
                 <p>Projects Completed</p>
               </div>
             </Col>
-            <Col xs={4}>
+            <Col md={4}>
               <div className={`${styles.counterContent}`}>
                 {startCounting && <Counter endValue={3000} suffix=" + " />}
                 <p>Code Commits</p>

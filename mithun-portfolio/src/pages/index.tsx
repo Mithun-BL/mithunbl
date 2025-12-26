@@ -1,10 +1,10 @@
 import Head from "next/head";
 import localFont from "next/font/local";
-import HomeBanner from "@/component/HomePage/Banner";
-import ProjectsHandled from "@/component/HomePage/ProjectsHandled";
-import Work from "@/component/HomePage/WorkExperience";
-import Skills from "@/component/HomePage/TechnicalSkills";
-import CountersSection from "@/component/HomePage/Counter/CounterSection";
+import HomeBanner from "@/components/HomePage/Banner";
+import ProjectsHandled from "@/components/HomePage/ProjectsHandled";
+import Work from "@/components/HomePage/WorkExperience";
+import Skills from "@/components/HomePage/TechnicalSkills";
+import CountersSection from "@/components/HomePage/Counter/CounterSection";
 // import styles from '../styles/Home.module.scss';
 // import "@/styles/globals.scss";
 // import { useState } from "react";

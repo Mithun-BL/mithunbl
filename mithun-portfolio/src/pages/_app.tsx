@@ -1,15 +1,18 @@
-import Footer from "@/component/Layout /Footer";
-import Header from "@/component/Layout /Header";
-import "@/styles/globals.scss";
+import React from "react";
 import type { AppProps } from "next/app";
+import "@/styles/globals.scss";
+import Header from "@/Layout /Header";
+import Footer from "@/Layout /Footer";
+
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-  <>
-  <Header/>
-  <Component {...pageProps} />
-  <Footer/>
-
-  </>
-  )
+    <>
+      <Header />
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <Footer />
+    </>
+  );
 }

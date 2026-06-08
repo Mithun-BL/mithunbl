@@ -1,6 +1,6 @@
+"use client";
+
 import React, { useState } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-import styles from '../TechnicalSkills/Skills.module.scss';
 
 const Skills = () => {
   const [showMore, setShowMore] = useState(false);
@@ -15,120 +15,45 @@ const Skills = () => {
     { title: 'ReactJS', description: 'Building fast, reusable UI components' },
     { title: 'NextJS', description: 'Framework for building full-stack web applications' },
     { title: 'TypeScript', description: 'Adding type safety to JavaScript' },
-    // { title: 'Redux', description: 'Managing complex state efficiently' },
-    // { title: 'Node.js', description: 'Server-side JavaScript environment' },
-    // { title: 'MongoDB', description: 'NoSQL database for modern applications' },
   ];
 
   const visibleSkills = showMore ? skills : skills.slice(0, 6);
 
   return (
-    <section className={styles.TechSkills}>
-      <Container>
-        <h2 className='fw-bold text-center mb-5 pb-3'>
+    <section id="Skills" className="mb-[100px] px-4 md:px-8">
+      <div className="container">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 pb-3">
           Tech Stacks & Skills Behind My Web Creations
         </h2>
-        <Row>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {visibleSkills.map((skill, index) => (
-            <Col xs={12} md={4} key={index}>
-              <div className={styles.skillContnet}>
-                <h4>{skill.title}</h4>
-                <p>{skill.description}</p>
-              </div>
-            </Col>
+            <div
+              key={index}
+              className="group relative overflow-hidden z-0 p-8 rounded-[20px] bg-white text-black border border-[#d8dce4] shadow-[0_5px_5px_0_rgba(233,240,243,0.5)] transition-all duration-[800ms] ease-in-out hover:text-white"
+            >
+              {/* Sliding background */}
+              <div className="absolute inset-y-0 left-0 w-0 group-hover:w-full bg-[#2f2f91] transition-all duration-[800ms] ease-in-out -z-10"></div>
+              
+              <h4 className="text-xl font-bold mb-2 transition-colors duration-[800ms]">
+                {skill.title}
+              </h4>
+              <p className="text-sm opacity-80 min-h-[48px] line-clamp-2 transition-colors duration-[800ms]">
+                {skill.description}
+              </p>
+            </div>
           ))}
-        </Row>
-        <div className='text-center mt-4'>
-          <button 
-            onClick={() => setShowMore(!showMore)} 
-            className='btn_bdr text-decoration-none'
+        </div>
+        <div className="text-center mt-10">
+          <button
+            onClick={() => setShowMore(!showMore)}
+            className="btn_bdr text-decoration-none focus:outline-none"
           >
             {showMore ? 'View Less' : 'View More'}
           </button>
         </div>
-      </Container>
+      </div>
     </section>
   );
 };
 
 export default Skills;
-
-
-// import React from 'react';
-// import { Container, Row, Col } from 'react-bootstrap';
-// import styles from '../TechnicalSkills/Skills.module.scss';
-
-// const Skills = () => {
-//   return (
-
-//         <section className={styles.TechSkills}>
-//             <Container>
-//                 <h2 className='fw-bold text-center mb-5 pb-3'>Stacks I use to create world class websites ...</h2>
-//                 <Row>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>HTML</h4>
-//                         <p>Building the structure of websites</p>
-//                       </div>
-//                     </Col>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>CSS</h4>
-//                         <p>Creating responsive, visually appealing layouts</p>
-//                       </div>
-//                     </Col>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>Bootstrap</h4>
-//                         <p>Building mobile-first, responsive designs</p>
-//                       </div>
-//                     </Col>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>JavaScript</h4>
-//                         <p>Making websites interactive and dynamic</p>
-//                       </div>
-//                     </Col>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>ReactJS</h4>
-//                         <p>Building fast, reusable UI components</p>
-//                       </div>
-//                     </Col>
-//                     <Col xs={4}>
-//                       <div className={styles.skillContnet}>
-//                         <h4>NextJS</h4>
-//                         <p>Framework for building full-stack web applications</p>
-//                       </div>
-//                     </Col>
-//                 </Row>
-//                 <div className='text-center mt-4'>
-//                   <a href={'...'} className='btn_bdr text-decoration-none'>View More</a>               
-//                  </div>
-//             </Container>
-//         </section>
-//   )
-// }
-
-// export default Skills
-
-
-
-{/* <Col xs={4}>
-<div className={styles.skillContnet}>
-  <h4>Typescript</h4>
-  <p>Framework for building full-stack web applications</p>
-</div>
-</Col>
-<Col xs={4}>
-<div className={styles.skillContnet}>
-  <h4>JQuery</h4>
-  <p>Framework for building full-stack web applications</p>
-</div>
-</Col>
-<Col xs={4}>
-<div className={styles.skillContnet}>
-  <h4>Mango DB</h4>
-  <p>Framework for building full-stack web applications</p>
-</div>
-</Col> */}

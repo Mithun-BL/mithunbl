@@ -1,16 +1,13 @@
 import React from 'react';
-import {Container} from 'react-bootstrap';
 
 const ProjectsHandled = () => {
   return (
-    <div>
-       <section className='secPad'>
-        <Container>
-            <h2 className='fw-bold text-md-center'>Projects</h2>
-        </Container>
-        </section> 
-    </div>
-  )
-}
+    <section id="Projects" className="secPad px-4 md:px-8">
+      <div className="container">
+        <h2 className="text-3xl md:text-4xl font-bold text-center">Projects</h2>
+      </div>
+    </section>
+  );
+};
 
-export default ProjectsHandled
+export default ProjectsHandled;

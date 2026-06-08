@@ -1,4 +1,6 @@
 // components/Counter/Counter.tsx
+"use client";
+
 import { useState, useEffect } from 'react';
 
 type CounterProps = {
@@ -28,9 +30,9 @@ const Counter: React.FC<CounterProps> = ({ endValue, suffix = '', duration = 300
   }, [endValue, duration]);
 
   return (
-    <>
-      <h3>{count} <span>{suffix} </span> </h3>
-    </>
+    <h3 className="text-6xl md:text-[100px] font-bold tracking-[-1.5px] leading-none">
+      {count} <span className="font-medium">{suffix}</span>
+    </h3>
   );
 };
 

@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --black-clr: #000000;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--black-clr);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+p {
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.btn_black {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--background);
+  line-height: 1.1;
+  border-radius: 50px;
+  display: inline-block;
+  background-color: var(--black-clr);
+  padding: 16px 32px;
+  transition: 0.5s all ease;
+  text-decoration: none;
+}
+
+.btn_bdr {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black-clr);
+  line-height: 1;
+  border-radius: 50px;
+  display: inline-block;
+  background-color: var(--background);
+  border: 1px solid var(--black-clr);
+  padding: 16px 32px;
+  transition: 0.5s all ease;
+  text-decoration: none;
+}
+
+.btn_black:hover,
+.btn_bdr:hover {
+  transform: scale(0.95);
+}
+
+.secPad {
+  margin-bottom: 100px;
+}
+
+.aboveWebSpacing {
+  padding-top: 150px;
+}
+
+@media (max-width: 767px) {
+  .aboveWebSpacing {
+    padding-top: 100px;
+  }
+}
+
+/* Custom Header Switch toggle styling */

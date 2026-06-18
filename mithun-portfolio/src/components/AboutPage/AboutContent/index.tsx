@@ -61,7 +61,7 @@ const AboutContent = () => {
                     <div className="lg:col-span-7 flex flex-col gap-8">
                         <div className="flex flex-col gap-5 text-base md:text-lg leading-relaxed">
                             <p className="font-semibold text-violet-500 dark:text-violet-400">
-                                Hello! I&apos;m Mithun BL, a passionate web developer based in Bangalore, India. I specialize in crafting elegant, responsive, and performance-oriented web applications.
+                                Hello! I'm Mithun BL, a passionate web developer based in Bangalore, India. I specialize in crafting elegant, responsive, and performance-oriented web applications.
                             </p>
                             <p className={textSecondary}>
                                 With years of front-end experience, I bridge the gap between creative visual design and robust code architecture. My philosophy is simple: build interfaces that feel alive, load instantly, and are accessible to everyone.

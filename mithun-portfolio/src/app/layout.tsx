@@ -1,7 +1,7 @@
 import Footer from "@/layouts/Footer";
 import Header from "@/layouts/Header";
-import CustomCursor from "@/components/CustomCursor";
 import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/CustomCursor";
 import "@/styles/globals.css";
 
 export default function RootLayout({

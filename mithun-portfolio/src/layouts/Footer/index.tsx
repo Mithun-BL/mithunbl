@@ -1,0 +1,237 @@
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+
+const Footer = () => {
+  const [isGlobalDark, setIsGlobalDark] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isHoveringCard, setIsHoveringCard] = useState(false);
+  const ctaCardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const checkDarkTheme = () => {
+      const rootBg = document.documentElement.style.getPropertyValue("--background");
+      const hasDarkVariable = rootBg === "#000000" || rootBg === "#000" || rootBg.trim() === "rgb(0, 0, 0)";
+      setIsGlobalDark(hasDarkVariable);
+    };
+
+    checkDarkTheme();
+
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "style") {
+          checkDarkTheme();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["style"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ctaCardRef.current) return;
+    const rect = ctaCardRef.current.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("mithunbl@gmail.com");
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+  };
+
+  // Theme variable styles
+  const footerBg = isGlobalDark
+    ? "bg-[#030712] border-white/[0.06] text-white"
+    : "bg-slate-50 border-black/[0.06] text-black-clr";
+
+  const cardBg = isGlobalDark
+    ? "bg-slate-950/40 border-white/[0.06] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+    : "bg-white/80 border-black/[0.04] shadow-[0_20px_50px_rgba(0,0,0,0.02)]";
+
+  const textSecondary = isGlobalDark ? "text-gray-400" : "text-gray-600";
+  const textMuted = isGlobalDark ? "text-gray-500" : "text-gray-400";
+
+  return (
+    <footer className={`relative border-t ${footerBg} py-20 px-6 md:px-12 transition-all duration-500 overflow-hidden`}>
+      {/* Background soft neutral blur effects for dark mode */}
+      {isGlobalDark && (
+        <div
+          className="absolute bottom-[-100px] right-[10%] w-[350px] h-[350px] rounded-full blur-[130px] opacity-[0.06] pointer-events-none transition-opacity duration-1000 bg-white"
+        />
+      )}
+
+      <div className="max-w-[1280px] mx-auto relative z-10">
+        {/* Top Part: Stunning CTA banner */}
+        <div
+          ref={ctaCardRef}
+          onMouseMove={handleMouseMove}
+          onMouseEnter={() => setIsHoveringCard(true)}
+          onMouseLeave={() => setIsHoveringCard(false)}
+          className={`group relative flex flex-col md:flex-row justify-between items-center p-8 md:p-14 gap-8 rounded-[36px] border ${cardBg} transition-all duration-500 mb-20 overflow-hidden`}
+        >
+          {/* Card Hover Glow effect */}
+          {isGlobalDark && isHoveringCard && (
+            <div
+              className="absolute inset-0 pointer-events-none transition-opacity duration-500"
+              style={{
+                background: `radial-gradient(400px circle at ${mousePos.x}px ${mousePos.y}px, rgba(255, 255, 255, 0.05), transparent 85%)`
+              }}
+            />
+          )}
+
+          <div className="text-center md:text-left max-w-[550px] z-10">
+            <span className="inline-block text-[11px] font-bold tracking-[3px] text-gray-500 dark:text-gray-400 mb-3 uppercase">
+              Let&apos;s collaborate
+            </span>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.15] mb-4">
+              Have an idea? Let&apos;s build it together.
+            </h2>
+            <p className={`text-sm md:text-base ${textSecondary}`}>
+              Whether you want to discuss a new project, seek a consultation, or just say hello, my inbox is always open.
+            </p>
+          </div>
+
+          <div className="">
+            {/* Copy Email Pill Button */}
+            <button
+              onClick={handleCopyEmail}
+              className={`group/btn relative flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border ${isGlobalDark
+                ? "bg-slate-900/50 border-white/[0.08] hover:border-white/30 text-white"
+                : "bg-slate-100 border-black/[0.06] hover:border-black/30 text-black-clr"
+                } transition-all duration-300 w-full sm:w-auto shadow-sm active:scale-98`}
+              title="Click to copy email address"
+            >
+              <div className="flex items-center gap-2.5">
+                <div className={`p-1.5 rounded-lg ${isGlobalDark ? "bg-slate-800" : "bg-white"} transition-colors`}>
+                  {copied ? (
+                    <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className={`w-4 h-4 ${isGlobalDark ? "text-white" : "text-black-clr"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
+                    </svg>
+                  )}
+                </div>
+                <span className="font-semibold text-sm tracking-wide">mithunbl@icloud.com</span>
+              </div>
+              <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${copied
+                ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
+                : `${isGlobalDark ? "bg-slate-800 text-slate-400" : "bg-slate-200 text-slate-600"} opacity-75 group-hover/btn:opacity-100 transition-opacity`
+                }`}>
+                {copied ? "Copied" : "Copy"}
+              </span>
+            </button>
+
+            {/* Get In Touch CTA button (uses site-wide btn_black class) */}
+            <Link
+              href="/contact-us"
+              className="btn_black text-center text-sm w-full sm:w-auto hover:scale-98 active:scale-95 transition-all duration-300"
+            >
+              Get in Touch
+            </Link>
+          </div>
+        </div>
+
+        {/* Middle Part: Navigation Links & Branding Column */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
+          {/* Logo & Pitch */}
+          <div className="md:col-span-5 flex flex-col items-start gap-4">
+            <Link href="/" className="text-[20px] md:text-[32px] tracking-wider leading-none font-bold hover:opacity-85 transition-opacity">
+              <span>Mithun BL</span>
+            </Link>
+            <p className={`text-sm leading-relaxed max-w-[360px] ${textSecondary}`}>
+              Creating premium, responsive, and highly interactive web applications with modern styling, seamless animations, and structured user experiences.
+            </p>
+          </div>
+
+          {/* Spacer Column */}
+          <div className="hidden md:block md:col-span-1" />
+
+          {/* Navigation Sitemap */}
+          <div className="md:col-span-3 flex flex-col gap-4">
+            <h4 className="text-xs font-bold tracking-[2px] text-gray-500 dark:text-gray-400 uppercase mb-1">
+              Sitemap
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {[
+                { label: "About / Skills", href: "/about-us" },
+                { label: "Work Experience", href: "/#Experience" },
+                { label: "Featured Projects", href: "/#Projects" },
+                { label: "Contact Channel", href: "/contact-us" }
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <Link
+                    href={link.href}
+                    className={`group flex items-center gap-1.5 text-sm font-medium ${textSecondary} hover:text-black dark:hover:text-white transition-colors duration-200`}
+                  >
+                    <span>{link.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Connect Networks */}
+          <div className="md:col-span-3 flex flex-col gap-4">
+            <h4 className="text-xs font-bold tracking-[2px] text-gray-500 dark:text-gray-400 uppercase mb-1">
+              Connect
+            </h4>
+            <ul className="flex flex-col gap-3">
+              {[
+                { label: "GitHub Codebase", href: "https://github.com", external: true },
+                { label: "LinkedIn Profile", href: "https://linkedin.com", external: true },
+                { label: "Twitter / X Profile", href: "https://twitter.com", external: true },
+                { label: "Dribbble Portfolio", href: "https://dribbble.com", external: true }
+              ].map((link, idx) => (
+                <li key={idx}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group flex items-center gap-1.5 text-sm font-medium ${textSecondary} hover:text-black dark:hover:text-white transition-colors duration-200`}
+                  >
+                    <span>{link.label}</span>
+                    <svg className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H7M17 7V17" />
+                    </svg>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Part: Horizontal Line & Copyright Metadata */}
+        <div className="w-full">
+          <div className={`h-[1px] w-full bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent mb-8`} />
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className={`text-xs ${textMuted} text-center sm:text-left`}>
+              &copy; {new Date().getFullYear()} Mithun BL. All rights reserved.
+            </p>
+            <p className={`text-xs ${textMuted} flex items-center gap-1`}>
+              <span>Engineered with design precision &bull; Next.js</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

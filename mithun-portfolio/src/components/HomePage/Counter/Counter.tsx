@@ -1,7 +1,7 @@
-// components/Counter/Counter.tsx
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
+import gsap from "gsap";
 
 type CounterProps = {
   endValue: number;
@@ -9,30 +9,39 @@ type CounterProps = {
   duration?: number;
 };
 
-const Counter: React.FC<CounterProps> = ({ endValue, suffix = '', duration = 3000 }) => {
-  const [count, setCount] = useState<number>(0);
+const Counter: React.FC<CounterProps> = ({
+  endValue,
+  suffix = "",
+  duration = 2,
+}) => {
+  // Set initial state to endValue for SEO/SSR friendliness.
+  // This will prevent layout shift and help search engines read the final statistic.
+  const [count, setCount] = useState<number>(endValue);
 
   useEffect(() => {
-    let startValue = 0;
-    const increment = endValue / (duration / 50);
+    // Set counting target object
+    const obj = { val: 0 };
+    setCount(0); // Start the count-up from 0 on the client side
 
-    const counterInterval = setInterval(() => {
-      startValue += increment;
-      if (startValue >= endValue) {
-        setCount(endValue);
-        clearInterval(counterInterval);
-      } else {
-        setCount(Math.floor(startValue));
-      }
-    }, 50);
+    const tween = gsap.to(obj, {
+      val: endValue,
+      duration: duration,
+      ease: "power2.out", // Exponential ease-out (fast start, slow smooth finish)
+      onUpdate: () => {
+        setCount(Math.floor(obj.val));
+      },
+    });
 
-    return () => clearInterval(counterInterval);
+    return () => {
+      tween.kill();
+    };
   }, [endValue, duration]);
 
   return (
-    <h3 className="text-6xl md:text-[100px] font-bold tracking-[-1.5px] leading-none">
-      {count} <span className="font-medium">{suffix}</span>
-    </h3>
+    <span className="font-bold">
+      {count}
+      <span className="font-medium text-current opacity-70 ml-1">{suffix}</span>
+    </span>
   );
 };
 

@@ -1,6 +1,7 @@
-// app/layout.tsx
-import Footer from "@/layout/Footer";
-import Header from "@/layout/Header";
+import Footer from "@/layouts/Footer";
+import Header from "@/layouts/Header";
+import CustomCursor from "@/components/CustomCursor";
+import Preloader from "@/components/Preloader";
 import "@/styles/globals.css";
 
 export default function RootLayout({
@@ -11,6 +12,8 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
+                <Preloader />
+                <CustomCursor />
                 <Header />
                 {children}
                 <Footer />

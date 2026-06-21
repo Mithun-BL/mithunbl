@@ -3,12 +3,21 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import SunIcon from '../../../public/images/sun.svg';
 import MoonIcon from '../../../public/images/moon.svg';
 
 const Header = () => {
   const [ddValue, setDdValue] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isActive = (path: string) => {
+    if (path === '/') {
+      return pathname === '/';
+    }
+    return pathname.startsWith(path);
+  };
 
   const ThemeToggle = () => (
     <button
@@ -76,9 +85,9 @@ const Header = () => {
 
           {/* Desktop Navigation Links (Centered) */}
           <div className="hidden md:flex flex-1 justify-center items-center space-x-8">
-            <Link href="/about-us" className="text-sm font-medium hover:opacity-75 transition-opacity">About</Link>
-            <Link href="/projects" className="text-sm font-medium hover:opacity-75 transition-opacity">Projects</Link>
-            <Link href="/#skills" className="text-sm font-medium hover:opacity-75 transition-opacity">Skills</Link>
+            <Link href="/" className={`text-sm hover:opacity-75 transition-all pb-1 border-b-2 ${isActive('/') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>Home</Link>
+            <Link href="/about-us" className={`text-sm hover:opacity-75 transition-all pb-1 border-b-2 ${isActive('/about-us') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>About</Link>
+            <Link href="/projects" className={`text-sm hover:opacity-75 transition-all pb-1 border-b-2 ${isActive('/projects') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>Projects</Link>
           </div>
 
           {/* Theme Toggle & CTA Section */}
@@ -104,10 +113,11 @@ const Header = () => {
         </nav>
 
         {/* Mobile menu dropdown */}
-        <div className={`md:hidden mt-2 bg-background border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-60 p-5' : 'max-h-0 opacity-0 pointer-events-none'}`}>
+        <div className={`md:hidden mt-2 bg-background border border-gray-200 dark:border-gray-800 rounded-2xl shadow-xl transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-64 p-5' : 'max-h-0 opacity-0 pointer-events-none'}`}>
           <div className="flex flex-col space-y-4">
-            <Link href="/about-us" className="text-base font-medium hover:opacity-75 transition-opacity">About</Link>
-            <Link href="/projects" className="text-base font-medium hover:opacity-75 transition-opacity">Projects</Link>
+            <Link onClick={() => setIsOpen(false)} href="/" className={`text-base hover:opacity-75 transition-all pb-1 border-b-2 w-fit ${isActive('/') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>Home</Link>
+            <Link onClick={() => setIsOpen(false)} href="/about-us" className={`text-base hover:opacity-75 transition-all pb-1 border-b-2 w-fit ${isActive('/about-us') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>About</Link>
+            <Link onClick={() => setIsOpen(false)} href="/projects" className={`text-base hover:opacity-75 transition-all pb-1 border-b-2 w-fit ${isActive('/projects') ? 'font-extrabold border-violet-600 dark:border-violet-400' : 'font-medium border-transparent'}`}>Projects</Link>
             <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-900">
               <ThemeToggle />
               <Link onClick={() => setIsOpen(false)} className="btn_black text-sm" href="/contact-us">

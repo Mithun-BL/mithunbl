@@ -14,16 +14,18 @@ const ProjectCard: React.FC<{ project: Project; isGlobalDark: boolean }> = ({ pr
 
       {/* Project Mockup Image Wrapper */}
       <Link href={`/projects/${project.slug}`} className="block relative w-full aspect-[16/10] overflow-hidden rounded-[24px] bg-black/5 dark:bg-white/5 border border-black/[0.05] dark:border-white/[0.05]">
-        <Image
-          src={project.image}
-          alt={project.title}
-          fill
-          sizes="(max-w-768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          priority
-        />
-        {/* Subtle dark overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="relative w-full h-full" style={{ position: 'relative' }}>
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            sizes="(max-w-768px) 100vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            priority
+          />
+          {/* Subtle dark overlay on hover */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        </div>
       </Link>
 
       {/* Card Details (Placed cleanly below the image) */}

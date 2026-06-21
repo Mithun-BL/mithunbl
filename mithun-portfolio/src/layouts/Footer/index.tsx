@@ -106,39 +106,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="">
-            {/* Copy Email Pill Button */}
-            <button
-              onClick={handleCopyEmail}
-              className={`group/btn relative flex items-center justify-between gap-3 px-6 py-4 rounded-2xl border ${isGlobalDark
-                ? "bg-slate-900/50 border-white/[0.08] hover:border-white/30 text-white"
-                : "bg-slate-100 border-black/[0.06] hover:border-black/30 text-black-clr"
-                } transition-all duration-300 w-full sm:w-auto shadow-sm active:scale-98`}
-              title="Click to copy email address"
-            >
-              <div className="flex items-center gap-2.5">
-                <div className={`p-1.5 rounded-lg ${isGlobalDark ? "bg-slate-800" : "bg-white"} transition-colors`}>
-                  {copied ? (
-                    <svg className="w-4 h-4 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  ) : (
-                    <svg className={`w-4 h-4 ${isGlobalDark ? "text-white" : "text-black-clr"}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                    </svg>
-                  )}
-                </div>
-                <span className="font-semibold text-sm tracking-wide">mithunbl@icloud.com</span>
-              </div>
-              <span className={`text-[10px] font-bold uppercase px-2 py-1 rounded ${copied
-                ? "bg-emerald-500/10 text-emerald-500 border border-emerald-500/20"
-                : `${isGlobalDark ? "bg-slate-800 text-slate-400" : "bg-slate-200 text-slate-600"} opacity-75 group-hover/btn:opacity-100 transition-opacity`
-                }`}>
-                {copied ? "Copied" : "Copy"}
-              </span>
-            </button>
-
-            {/* Get In Touch CTA button (uses site-wide btn_black class) */}
+          <div>
             <Link
               href="/contact-us"
               className="btn_black text-center text-sm w-full sm:w-auto hover:scale-98 active:scale-95 transition-all duration-300"

@@ -55,7 +55,7 @@ const ProjectCard: React.FC<{ project: Project; isGlobalDark: boolean }> = ({ pr
       />
 
       {/* Project Mockup Image Wrapper */}
-      <div className="relative w-full aspect-[4/3] overflow-hidden bg-black/5 dark:bg-white/5 border-b border-black/[0.05] dark:border-white/[0.05]">
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-black/5 dark:bg-white/5 border-b border-black/[0.05] dark:border-white/[0.05]" style={{ position: 'relative' }}>
         <Image
           src={project.image}
           alt={project.title}

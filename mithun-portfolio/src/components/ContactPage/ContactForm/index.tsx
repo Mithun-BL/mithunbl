@@ -125,7 +125,7 @@ const ContactForm = () => {
 
                                 <div className="text-center mt-4">
                                     <button type="submit" className="border-0 btn_black cursor-pointer focus:outline-none">
-                                        Submit Form
+                                        Submit
                                     </button>
                                 </div>
                             </form>

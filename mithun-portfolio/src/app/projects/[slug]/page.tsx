@@ -165,7 +165,7 @@ export default function ProjectDetailPage() {
               </div>
 
               {/* Graphic Mockup Column */}
-              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-inner">
+              <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-3xl overflow-hidden bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 shadow-inner" style={{ position: 'relative' }}>
                 <Image 
                   src={project.image}
                   alt={project.title}

@@ -16,7 +16,7 @@ const SKILLS_DATA: SkillItem[] = [
     glowColor: '241, 101, 41', // Orange
     icon: (
       <svg className="w-8 h-8 text-[#F16529]" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M1.5 0h21l-1.9 21.2L12 24 3.4 21.2zm17 5.4H7.5l.2 2.6H18l-.5 5.7-5.5 1.5-5.5-1.5-.4-3.8H3.7l.6 6.3L12 20.3l7.7-2.1z"/>
+        <path d="M1.5 0h21l-1.9 21.2L12 24 3.4 21.2zm17 5.4H7.5l.2 2.6H18l-.5 5.7-5.5 1.5-5.5-1.5-.4-3.8H3.7l.6 6.3L12 20.3l7.7-2.1z" />
       </svg>
     )
   },
@@ -26,7 +26,7 @@ const SKILLS_DATA: SkillItem[] = [
     glowColor: '38, 77, 228', // Blue
     icon: (
       <svg className="w-8 h-8 text-[#264de4]" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M1.5 0h21l-1.9 21.2L12 24 3.4 21.2zm17 5.4H5.3l.3 3h12.5l-.3 3.5H5.8l.2 3.1h9.3l-.3 3.3-3 1-3-1-.2-2.1H5.8l.4 5.3 5.8 1.9 5.8-1.9.9-11.1z"/>
+        <path d="M1.5 0h21l-1.9 21.2L12 24 3.4 21.2zm17 5.4H5.3l.3 3h12.5l-.3 3.5H5.8l.2 3.1h9.3l-.3 3.3-3 1-3-1-.2-2.1H5.8l.4 5.3 5.8 1.9 5.8-1.9.9-11.1z" />
       </svg>
     )
   },
@@ -66,7 +66,7 @@ const SKILLS_DATA: SkillItem[] = [
     glowColor: '247, 223, 30', // JS Yellow
     icon: (
       <svg className="w-8 h-8 text-[#F7DF1E]" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M24 0H0v24h24V0zM11.9 16.5c0 1.8-1 2.7-3 2.7-1.7 0-2.6-.8-3-2.1l1.6-1c.3.7.7 1.1 1.4 1.1.8 0 1.3-.4 1.3-1.2V9.3h1.8v7.2zm7.1 2.7c-2 0-3.3-1.1-3.3-2.9h1.8c.1.9.7 1.3 1.5 1.3.7 0 1.2-.3 1.2-.9 0-1.3-3.2-1-3.2-3.8 0-1.5 1.2-2.7 3.1-2.7 1.8 0 3 .9 3.2 2.4h-1.8c-.1-.7-.6-1-1.3-1-.6 0-1.1.2-1.1.7 0 1.1 3.2.8 3.2 3.7.1 1.7-1.1 2.8-3.4 2.8z"/>
+        <path d="M24 0H0v24h24V0zM11.9 16.5c0 1.8-1 2.7-3 2.7-1.7 0-2.6-.8-3-2.1l1.6-1c.3.7.7 1.1 1.4 1.1.8 0 1.3-.4 1.3-1.2V9.3h1.8v7.2zm7.1 2.7c-2 0-3.3-1.1-3.3-2.9h1.8c.1.9.7 1.3 1.5 1.3.7 0 1.2-.3 1.2-.9 0-1.3-3.2-1-3.2-3.8 0-1.5 1.2-2.7 3.1-2.7 1.8 0 3 .9 3.2 2.4h-1.8c-.1-.7-.6-1-1.3-1-.6 0-1.1.2-1.1.7 0 1.1 3.2.8 3.2 3.7.1 1.7-1.1 2.8-3.4 2.8z" />
       </svg>
     )
   },
@@ -116,11 +116,11 @@ const SkillCard: React.FC<{ skill: SkillItem; isGlobalDark: boolean }> = ({ skil
     });
   };
 
-  const cardBg = isGlobalDark 
-    ? "bg-slate-950/45 border-white/[0.05] hover:bg-slate-950/70" 
+  const cardBg = isGlobalDark
+    ? "bg-slate-950/45 border-white/[0.05] hover:bg-slate-950/70"
     : "bg-white border-black/[0.04] hover:bg-white/80";
 
-  const shadowStyle = isHovered 
+  const shadowStyle = isHovered
     ? `0 20px 40px -15px rgba(${skill.glowColor}, 0.15)`
     : isGlobalDark ? 'none' : '0 10px 30px rgba(0, 0, 0, 0.01)';
 
@@ -155,7 +155,7 @@ const SkillCard: React.FC<{ skill: SkillItem; isGlobalDark: boolean }> = ({ skil
 
       {/* Icon & Title Header */}
       <div className="flex items-center justify-between mb-5 relative z-10">
-        <div 
+        <div
           className="p-3.5 rounded-2xl bg-black/[0.02] dark:bg-white/5 border border-black/5 dark:border-white/5 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-1"
           style={{
             boxShadow: isHovered ? `0 10px 20px -5px rgba(${skill.glowColor}, 0.2)` : ''
@@ -163,7 +163,7 @@ const SkillCard: React.FC<{ skill: SkillItem; isGlobalDark: boolean }> = ({ skil
         >
           {skill.icon}
         </div>
-        
+
         {/* Decorative Subtle Background Index */}
         <span className={`text-4xl font-black opacity-[0.03] dark:opacity-[0.05] tracking-tighter ${isGlobalDark ? 'text-white' : 'text-black'}`}>
           {skill.title.slice(0, 2)}
@@ -218,7 +218,7 @@ const Skills = () => {
   return (
     <section id="Skills" className="mb-16 px-4 md:px-8 overflow-hidden pt-12">
       <div className="container max-w-6xl mx-auto flex flex-col items-center">
-        
+
         {/* Tech Stack Glowing Badge */}
         <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-violet-500/20 bg-violet-500/10 text-violet-600 dark:text-violet-400 mb-6 select-none animate-pulse">
           <span className="relative flex h-2.5 w-2.5">
@@ -232,7 +232,7 @@ const Skills = () => {
         <h2 className={`text-3xl md:text-5xl font-black text-center mb-4 leading-tight tracking-tight transition-colors duration-1000 ${isGlobalDark ? 'text-white' : 'text-black-clr'} max-w-3xl mx-auto`}>
           Skills Behind My <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-indigo-500 to-cyan-500">Web Creations</span>
         </h2>
-        
+
         <p className={`text-center max-w-xl mx-auto mb-16 text-base font-medium transition-colors duration-1000 ${isGlobalDark ? 'text-white/60' : 'text-black-clr/60'}`}>
           A curated suite of modern technologies, libraries, and frameworks I use to create stunning, high-performance web applications.
         </p>
@@ -248,14 +248,13 @@ const Skills = () => {
         <div className="text-center mt-14">
           <button
             onClick={() => setShowMore(!showMore)}
-            className={`group inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-xs uppercase tracking-[0.1em] border transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] ${
-              isGlobalDark
+            className={`group inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-bold text-xs  tracking-[0.1em] border transition-all duration-300 hover:scale-[1.05] active:scale-[0.98] ${isGlobalDark
                 ? "border-white/10 text-white bg-white/5 hover:bg-white/10 hover:border-white/20"
                 : "border-black/10 text-black bg-black/5 hover:bg-black/10 hover:border-black/20"
-            }`}
+              }`}
           >
-            <span>{showMore ? 'View Less' : 'View More'}</span>
-            <svg 
+            <span>{showMore ? 'view less awards' : 'view more awards'}</span>
+            {/* <svg 
               className={`w-3.5 h-3.5 transition-transform duration-300 ${showMore ? 'rotate-180' : 'group-hover:translate-y-0.5'}`} 
               fill="none" 
               viewBox="0 0 24 24" 
@@ -263,7 +262,7 @@ const Skills = () => {
               strokeWidth="2.5"
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-            </svg>
+            </svg> */}
           </button>
         </div>
 
